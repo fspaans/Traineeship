@@ -13,14 +13,17 @@ public class Ifs{
 		
 		if(x/y == 5){
 			x = 100;
-			System.out.println("x is nu: " + x);			
-		}else if(x*y == 5){
+			System.out.println("(A) x is nu: " + x);			
+		}
+		if(x*y == 5){
 			x=1;
-			System.out.println("x is nu: " + x);			
-		}else if(x<y){
+			System.out.println("(B) x is nu: " + x);			
+		}
+		if(x<y){
 			x *= 2;
 			System.out.println("x is nu verdubbeld: " + x);			
-		}else if( x>y ){
+		}
+		if( x>y ){
 			x++;
 			System.out.println("x is nu : " + x);			
 		}
