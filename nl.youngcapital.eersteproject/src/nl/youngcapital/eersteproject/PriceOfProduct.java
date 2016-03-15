@@ -6,13 +6,13 @@ import java.util.Scanner;
 public class PriceOfProduct {
 
 	public static void main(String[] args) {
-		HashMap<Integer, Double> h = new HashMap<Integer, Double>();
+		HashMap<Integer, Integer> h = new HashMap<Integer, Integer>();
 		
-		h.put(1, 2.95);
-		h.put(2, 4.99);
-		h.put(3, 5.49);
-		h.put(4, 7.80);
-		h.put(5, 8.85);
+		h.put(1, 295);
+		h.put(2, 499);
+		h.put(3, 549);
+		h.put(4, 780);
+		h.put(5, 885);
 		
 		Scanner s = new Scanner(System.in);
 		
@@ -32,7 +32,7 @@ public class PriceOfProduct {
 			}
 		}
 		s.close();
-		System.out.println("Winst: " + h.get(prod)*sold);
+		System.out.println("Winst: " + h.get(prod)*sold/100.0);
 		
 	}
 }
