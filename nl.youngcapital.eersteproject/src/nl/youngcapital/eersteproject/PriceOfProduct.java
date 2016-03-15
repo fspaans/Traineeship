@@ -31,6 +31,7 @@ public class PriceOfProduct {
 				System.out.println("Dit is geen getal.");
 			}
 		}
+		s.close();
 		System.out.println("Winst: " + h.get(prod)*sold);
 		
 	}
