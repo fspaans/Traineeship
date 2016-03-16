@@ -7,14 +7,20 @@ public class SellProducts{
 	static Scanner s = new Scanner(System.in);
 	
 	public static void main(String[] args){
-		double price1 = 2.95; 
-		double price2 = 4.99; 
-		double price3 = 5.49; 
-		double price4 = 7.80; 
-		double price5 = 8.85; 
 		
-		double myPrice;
-		double totalPrice;
+		int[] prices;
+		prices = new int[5];
+		
+		prices[0] = 295;
+		prices[1] = 499;
+		prices[2] = 549;
+		prices[3] = 780;
+		prices[4] = 885;
+		
+		int myPrice;
+		int totalPrice;
+		int wholePrice;
+		int decimalPrice;
 		
 		int input;
 		System.out.println("Vul productnummer in:");
@@ -22,39 +28,52 @@ public class SellProducts{
 		
 		switch(input){
 			case 1: 
-				myPrice = price1;
+				myPrice = prices[0];
 				System.out.println("Vul totaal producten in:");
 				input = Integer.valueOf(s.next());
 				totalPrice = input * myPrice;
-				System.out.println("Totale prijs is: "+ totalPrice);
+				wholePrice =totalPrice / 100;
+				decimalPrice = totalPrice %100;
+				System.out.println("Totale prijs is: "+ wholePrice + ","+ decimalPrice);
 				break;
 			case 2: 
-				myPrice = price2;
+				myPrice = prices[1];
 				System.out.println("Vul totaal producten in:");
 				input = Integer.valueOf(s.next());
 				totalPrice = input * myPrice;
-				System.out.println("Totale prijs is: "+ totalPrice);
+				wholePrice =totalPrice / 100;
+				decimalPrice = totalPrice %100;
+				System.out.println("Totale prijs is: "+ wholePrice + ","+ decimalPrice);
 				break;
 			case 3: 
-				myPrice = price3;
+				myPrice = prices[2];
 				System.out.println("Vul totaal producten in:");
 				input = Integer.valueOf(s.next());
 				totalPrice = input * myPrice;
-				System.out.println("Totale prijs is: "+ totalPrice);
+				wholePrice =totalPrice / 100;
+				decimalPrice = totalPrice %100;
+				System.out.println("Totale prijs is: "+ wholePrice + ","+ decimalPrice);
 				break;
 			case 4: 
-				myPrice = price4;
+				myPrice = prices[3];
 				System.out.println("Vul totaal producten in:");
 				input = Integer.valueOf(s.next());
 				totalPrice = input * myPrice;
-				System.out.println("Totale prijs is: "+ totalPrice);
+				wholePrice =totalPrice / 100;
+				decimalPrice = totalPrice %100;
+				System.out.println("Totale prijs is: "+ wholePrice + ","+ decimalPrice);
 				break;
 			case 5: 
-				myPrice = price5;
+				myPrice = prices[4];
 				System.out.println("Vul totaal producten in:");
 				input = Integer.valueOf(s.next());
 				totalPrice = input * myPrice;
-				System.out.println("Totale prijs is: "+ totalPrice);
+				wholePrice =totalPrice / 100;
+				decimalPrice = totalPrice %100;
+				System.out.println("Totale prijs is: "+ wholePrice + ","+ decimalPrice);
+				break;
+			default:
+				System.out.println("Kan het productnummer niet vinden.");
 				break;
 			}
 	}

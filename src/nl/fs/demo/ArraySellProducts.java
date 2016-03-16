@@ -1,0 +1,13 @@
+package nl.fs.demo;
+
+import java.util.Scanner;
+
+public class ArraySellProducts {
+
+	static Scanner s = new Scanner(System.in);
+	
+	public static void main(String[] args){
+		
+	}
+}
+
