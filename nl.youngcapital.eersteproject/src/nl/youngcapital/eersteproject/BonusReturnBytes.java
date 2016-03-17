@@ -8,6 +8,7 @@ public class BonusReturnBytes {
 	}
 
 	public static int aantalbytes(boolean b) throws Exception { throw new IllegalArgumentException("Booleans zijn niet duidelijk."); }
+	public static int aantalbytes(Object o) throws Exception { throw new IllegalArgumentException("Objecten mogen niet."); }
 	
 	public static int aantalbytes(byte b) { return 1; }
 	

@@ -8,12 +8,13 @@ public class PastIn {
 		int i = 9;
 		long l = 4;
 		boolean b = true;
-		boolean t = pastIn(c,l);
+		String s = "hoi";
+		boolean t = pastIn(i,l);
 		System.out.println(t);
 	}
 	
 	public static boolean pastIn(Object a, Object b) throws Exception{
-		return aantalbytes(a.getClass().cast(a)) <= aantalbytes(b.getClass().cast(b));
+		return aantalbytes(a) <= aantalbytes(b);
 	}
 	
 	public static int aantalbytes(Object o) throws Exception {
