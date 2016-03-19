@@ -1,9 +1,18 @@
 package nl.fs.webwinkel;
 
+
+
 public class Main{
 	
-	public static void MAIN(String[] args){
+	private static void maakProducten(){
 		
+		
+		
+	}
+	
+	
+	public static void MAIN(String[] args){
+		maakProducten();
 		System.out.println("heyy");
 		
 	}
