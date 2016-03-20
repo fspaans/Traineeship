@@ -61,7 +61,7 @@ public abstract class Product {
 		}
 	}
 	
-	abstract int getPrijs(int hoeveelheid, boolean inclusief);
+	public abstract int getPrijs(int hoeveelheid, boolean inclusief);
 	abstract int getBTWPercentage();
 	
 	public void setVoorraad(int voorraad) throws IllegalArgumentException {

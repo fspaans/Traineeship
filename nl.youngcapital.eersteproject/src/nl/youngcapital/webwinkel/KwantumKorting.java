@@ -2,23 +2,21 @@ package nl.youngcapital.webwinkel;
 
 public class KwantumKorting extends Product {
 
-	KwantumKorting(String naam, int prijs, int voorraad) {
+	public KwantumKorting(String naam, int prijs, int voorraad) {
 		super(naam, prijs, voorraad);
-		// TODO Auto-generated constructor stub
 	}
 	
-	KwantumKorting(String naam, int prijs, int voorraad, int eenheid) {
+	public KwantumKorting(String naam, int prijs, int voorraad, int eenheid) {
 		super(naam, prijs, voorraad, eenheid);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	int getPrijs(int hoeveelheid, boolean inclusief) {
+	public int getPrijs(int hoeveelheid, boolean inclusief) {
 		if (!inclusief) {
-			return ((3+hoeveelheid)/(2*(1+hoeveelheid)))*getPrijsPerEenheid();
+			return (hoeveelheid*(3+hoeveelheid)*getPrijsPerEenheid())/(2*(1+hoeveelheid));
 		}
 		else {
-			return (((3+hoeveelheid)/(2*(1+hoeveelheid)))*getPrijsPerEenheid()*(100 + getBTWPercentage()))/100;
+			return (hoeveelheid*(3+hoeveelheid)*getPrijsPerEenheid()*(100 + getBTWPercentage()))/(100*(2*(1+hoeveelheid)));
 		}
 	}
 

@@ -17,7 +17,7 @@ public class DefaultProduct extends Product {
 	}
 
 	@Override
-	int getPrijs(int hoeveelheid, boolean inclusief) {
+	public int getPrijs(int hoeveelheid, boolean inclusief) {
 		return (!inclusief) ? hoeveelheid*getPrijsPerEenheid() : (hoeveelheid*getPrijsPerEenheid()*(100 + getBTWPercentage()))/100;
 	}
 	
