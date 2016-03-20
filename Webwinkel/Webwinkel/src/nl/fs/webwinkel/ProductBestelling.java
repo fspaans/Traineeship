@@ -7,8 +7,8 @@ public class ProductBestelling{
 	private int prijs;
 	
 	int getTotaalPrijs(){
-		this.hoeveelheid *= 15;
-		return this.hoeveelheid;
+		this.prijs *= this.hoeveelheid ;
+		return this.prijs;
 	}
 	
 	String getPNaam(){		
