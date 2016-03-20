@@ -1,6 +1,5 @@
 package nl.fs.webwinkel;
 
-import java.util.Scanner;
 
 public class DefaultProduct extends Product{
 	

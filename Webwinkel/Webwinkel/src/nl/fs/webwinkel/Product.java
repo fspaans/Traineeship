@@ -1,6 +1,5 @@
 package nl.fs.webwinkel;
 
-import java.util.Scanner;
 
 public class Product{
 	
@@ -35,7 +34,7 @@ public class Product{
 		
 	}
 	
-	protected Product(String naam, int prijs, int voorraad){
+	protected Product(String naam, int prijs){
 		
 		
 		
