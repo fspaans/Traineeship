@@ -1,12 +1,9 @@
 package nl.fs.webwinkel;
 
 
-public class Product{
+public class Product extends ProductI{
 	
-	protected String pNaam;
-	protected int pPrijs;
-	protected int pVoorraad;
-	protected int pEenheid;
+	
 	
 	protected String toText(){
 		
@@ -28,7 +25,7 @@ public class Product{
 	
 	protected int getPrijs(){
 		//DefaultProduct.class. btwBerekening();
-		return this.pPrijs; 
+		return pPrijs; 
 		
 		
 	}
@@ -41,8 +38,8 @@ public class Product{
 	}
 	
 	protected Product(String naam, int prijs){
-		this.pNaam = naam;
-		this.pPrijs = prijs;
+		pNaam = naam;
+		pPrijs = prijs;
 		
 	}
 	

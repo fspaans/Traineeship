@@ -5,6 +5,7 @@ public class Winkelwagen{
 	private static String naam;
 	private static int hoeveelheid;
 	private static int totaal;
+	private static int btw;
 	
 	
 	
@@ -20,12 +21,22 @@ public class Winkelwagen{
 		naam = pb.getPNaam();
 		totaal = pb.getTotaalPrijs();
 		hoeveelheid = h;
+		DefaultProduct dp = new DefaultProduct(p.pNaam, p.pPrijs);
+		btw = dp.getBTW();
 	}
 	
 	String toText(){
-		String t = (totaal / 100 + ","+ totaal %100);
+		int t = totaal / 100;
+		int tm = totaal %100;
+		String x;
+		
+		if(tm > 1){
+			x = (t + ","+ totaal %100);
+		}else{
+			x = (t + ",00");
+		}
 
-		String s = "U heeft " + naam +" besteld en "+ hoeveelheid+" stuks, de totaalprijs is: €"+ t;
+		String s = "U heeft " + naam +" besteld en "+ hoeveelheid+" stuks, de totaalprijs is: €"+ x;
 		return s;
 	}
 	
