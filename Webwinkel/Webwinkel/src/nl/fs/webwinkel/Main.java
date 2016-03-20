@@ -1,23 +1,28 @@
 package nl.fs.webwinkel;
 
-import nl.fs.webwinkel.ProductGegevens;
+import nl.fs.webwinkel.*;
 
 public class Main{
 	
 	public static void maakProducten(){
 		
-		ProductGegevens[] pObj = new ProductGegevens[2];
+		Product[] pObj = new Product[2];
+		Winkelwagen ww = new Winkelwagen();
 		
-		pObj[0] = new ProductGegevens("advocado", 50);
-		pObj[1] = new ProductGegevens("tomaat", 25);
+		pObj[0] = new Product("advocado", 50);
+		pObj[1] = new Product("tomaat", 25);
 		
 		for(int i = 0; i < pObj.length; i++){			
-			System.out.println(pObj[i].pNaam);			
+			System.out.println(pObj[i].pNaam);
+			Winkelwagen.bestel(pObj[i], pObj[i].pPrijs,2);
+			//DefaultProduct sp = new DefaultProduct().btwBerekening();
+			System.out.println(pObj[i].pPrijs / 100 + ","+ pObj[i].pPrijs %100);
 		}
 	}
 	
 	public static void main(String[] args){
 		maakProducten();
+		
 		
 		
 		
