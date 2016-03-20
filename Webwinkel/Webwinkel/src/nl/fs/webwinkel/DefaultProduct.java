@@ -16,11 +16,4 @@ public class DefaultProduct extends Product{
 		return this.btwPrijs;
 	}
 	
-	protected void btwBerekening(){
-		//super.pPrijs += super.pPrijs / 100 * btwVoedsel;
-
-	}
-	
-
-	
 }
