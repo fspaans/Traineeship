@@ -2,6 +2,11 @@ package nl.youngcapital.webwinkel;
 
 public class Voedsel extends Product {
 
+	private String naam;
+	private int prijs;
+	private int voorraad;
+	private int eenheid;
+	
 	public Voedsel(String naam, int prijs, int voorraad) {
 		super(naam, prijs, voorraad);
 	}

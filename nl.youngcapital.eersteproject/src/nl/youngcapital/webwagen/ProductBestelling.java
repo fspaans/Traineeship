@@ -30,6 +30,7 @@ public class ProductBestelling {
 	}
 	
 	public void setHoeveelheid(int hoeveelheid) {
+		this.product.setVoorraad(this.product.getVoorraad());
 		this.hoeveelheid = hoeveelheid;
 	}
 }

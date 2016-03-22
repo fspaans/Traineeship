@@ -2,53 +2,27 @@ package nl.youngcapital.webwinkel;
 
 public abstract class Product {
 	
-	private final static int gram = 1;
-	private final static int kilo = 2;
-	private final static int liter = 3;
-	private final static int stuk = 4;
-	private final static int pak = 5;
+	public final static int gram = 1;
+	public final static int kilo = 2;
+	public final static int liter = 3;
+	public final static int stuk = 4;
+	public final static int pak = 5;
 	
-	private String naam;
-	private int prijs;
-	private int voorraad;
-	private int eenheid;
-	
-	Product(String naam, int prijs, int voorraad, int eenheid) {
-		this.naam = naam;
-		this.prijs = prijs;
-		this.voorraad = voorraad;
-		this.eenheid = eenheid;
-	}	
+	Product(String naam, int prijs, int voorraad, int eenheid) { }	
 	
 	Product(String naam, int prijs, int voorraad) {
 		this(naam, prijs, voorraad, stuk);
 	}
 	
-	public String getNaam() {
-		return this.naam;
-	}
+	public abstract String getNaam();
+	public abstract int getPrijsPerEenheid();
+	public abstract int getVoorraad();
+	public abstract int getEenheid();
 	
-	public int getPrijsPerEenheid() {
-		return this.prijs;
-	}
-	
-	public final int getVoorraad() throws IllegalArgumentException {
-		if (this.voorraad >= 0) {
-			return this.voorraad;
-		}
-		else {
-			throw new IllegalArgumentException("Your voorraad can't be negative.");
-		}
-	}
-	
-	public int getEenheid() {
-		return this.eenheid;
-	}
-	
-	@Override
-	public String toString() {
-		return "Product: " + this.naam + ", prijs per " + this.getEenheidNaam() + ": " + this.prijs + ", voorraad: " + this.voorraad + ".";
-	}
+	//@Override
+	//public String toString() {
+	//	return "Product: " + this.naam + ", prijs per " + this.getEenheidNaam() + ": " + this.prijs + ", voorraad: " + this.voorraad + ".";
+	//}
 	
 	public String getEenheidNaam() {
 		switch (this.getEenheid()) {
@@ -64,18 +38,16 @@ public abstract class Product {
 	public abstract int getPrijs(int hoeveelheid, boolean inclusief);
 	abstract int getBTWPercentage();
 	
-	public void setVoorraad(int voorraad) throws IllegalArgumentException {
-		if (voorraad >= 0) {
-			this.voorraad = voorraad;
-		}
-		else {
+	public final void setVoorraad(int voorraad) throws IllegalArgumentException {
+		if (voorraad >= 0) {		
 			throw new IllegalArgumentException("No negative voorraad allowed.");
 		}
+		
 	}
 	
-	void haalUitVoorraad(int aantal) throws IllegalArgumentException {
+	public void haalUitVoorraad(int aantal) throws IllegalArgumentException {
 		if (aantal <= getVoorraad()) {
-			setVoorraad(getVoorraad() - aantal);
+			setVoorraad(this.voorraad - aantal);
 		}
 		else {
 			throw new IllegalArgumentException("Not that much voorraad available.");
