@@ -12,7 +12,6 @@ public class WebMain {
 		Product p2 = new DefaultProduct("Pan", 34, 9);
 		
 		p2.setVoorraad(10);
-		System.out.println(p2);
 		System.out.println(p2.getPrijs(10, false));
 		System.out.println(p2.getPrijs(10, true));
 		
