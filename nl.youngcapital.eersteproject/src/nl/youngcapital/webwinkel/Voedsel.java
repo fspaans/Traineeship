@@ -1,21 +1,15 @@
 package nl.youngcapital.webwinkel;
 
-public class DefaultProduct extends Product {
-	
-	
-	public DefaultProduct(String naam, int prijs, int voorraad) {
+public class Voedsel extends Product {
+
+	public Voedsel(String naam, int prijs, int voorraad) {
 		super(naam, prijs, voorraad);
 	}
-	
-	public DefaultProduct(String naam, int prijs, int voorraad, int eenheid) {
+
+	public Voedsel(String naam, int prijs, int voorraad, int eenheid) {
 		super(naam, prijs, voorraad, eenheid);
 	}
-
-	@Override
-	int getBTWPercentage() {
-		return 21;
-	}
-
+	
 	@Override
 	public int getPrijs(int hoeveelheid, boolean inclusief) {
 		if (!inclusief) {
@@ -25,5 +19,10 @@ public class DefaultProduct extends Product {
 			return (hoeveelheid*getPrijsPerEenheid()*(100 + getBTWPercentage()))/100;
 		}
 	}
-	
+
+	@Override
+	int getBTWPercentage() {
+		return 6;
+	}
+
 }

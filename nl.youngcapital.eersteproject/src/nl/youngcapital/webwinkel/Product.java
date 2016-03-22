@@ -13,7 +13,7 @@ public abstract class Product {
 	private int voorraad;
 	private int eenheid;
 	
-	Product(String naam, int prijs, int voorraad,int eenheid) {
+	Product(String naam, int prijs, int voorraad, int eenheid) {
 		this.naam = naam;
 		this.prijs = prijs;
 		this.voorraad = voorraad;
@@ -47,7 +47,7 @@ public abstract class Product {
 	
 	@Override
 	public String toString() {
-		return "Naam: " + this.getNaam() + ", eenheid: " + this.getEenheidNaam() + ", voorraad: " + this.getVoorraad() + ".";
+		return "Product: " + this.naam + ", prijs per " + this.getEenheidNaam() + ": " + this.prijs + ", voorraad: " + this.voorraad + ".";
 	}
 	
 	public String getEenheidNaam() {
