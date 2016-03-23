@@ -10,12 +10,12 @@ public class Winkelwagen{
 	
 	
 	
-	static int getTotaalPrijs(){
+	int getTotaalPrijs(){
 		int t = btw + totaal;		
 		return t;
 	}
 	
-	static void bestel(Product p, int prijs, int h){
+	void bestel(Product p, int prijs, int h){
 		ProductBestelling pb = new ProductBestelling(p.pNaam, prijs, h);
 		naam = pb.getPNaam();
 		totaal = pb.getTotaalPrijs();
@@ -25,7 +25,8 @@ public class Winkelwagen{
 		inclusief = getTotaalPrijs();
 	}
 	
-	String toText(){
+	@Override
+	public String toString() {
 		int t = totaal / 100;
 		int tm = totaal %100;
 		int i = inclusief / 100;
