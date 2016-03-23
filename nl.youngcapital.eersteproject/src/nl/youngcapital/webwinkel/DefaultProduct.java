@@ -1,17 +1,17 @@
 package nl.youngcapital.webwinkel;
 
-public class DefaultProduct extends Product {
+import nl.youngcapital.webwinkel.Bezorging.IBezorgbaar;
+
+public class DefaultProduct extends Product implements IBezorgbaar {
 	
 	private String naam;
 	private int prijs;
 	private int voorraad;
 	private int eenheid;
+	private Bezorging bezorging;
 	
 	public DefaultProduct(String naam, int prijs, int voorraad) {
-		super(naam, prijs, voorraad);
-		this.naam = naam;
-		this.prijs = prijs;
-		this.voorraad = voorraad;
+		this(naam, prijs, voorraad, stuk);
 	}
 	
 	public DefaultProduct(String naam, int prijs, int voorraad, int eenheid) {
@@ -23,18 +23,42 @@ public class DefaultProduct extends Product {
 	}
 
 	@Override
-	int getBTWPercentage() {
+	public int getBTWPercentage() {
 		return 21;
 	}
 
 	@Override
-	public int getPrijs(int hoeveelheid, boolean inclusief) {
-		if (!inclusief) {
-			return hoeveelheid*getPrijsPerEenheid();
-		}
-		else {
-			return (hoeveelheid*getPrijsPerEenheid()*(100 + getBTWPercentage()))/100;
-		}
+	public String getNaam() {
+		return this.naam;
 	}
-	
+
+	@Override
+	public int getPrijsPerEenheid() {
+		return this.prijs;
+	}
+
+	@Override
+	public int getVoorraad() {
+		return this.voorraad;
+	}
+
+	@Override
+	public int getEenheid() {
+		return this.eenheid;
+	}
+
+	@Override
+	public void setVoorraad2(int voorraad) {
+		this.voorraad = voorraad;
+	}
+
+	@Override
+	public void setBezorging(Bezorging b) {
+		this.bezorging = b;
+	}
+
+	@Override
+	public Bezorging getBezorging() {
+		return this.bezorging;
+	}	
 }

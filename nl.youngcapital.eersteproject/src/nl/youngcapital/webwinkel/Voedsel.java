@@ -9,25 +9,46 @@ public class Voedsel extends Product {
 	
 	public Voedsel(String naam, int prijs, int voorraad) {
 		super(naam, prijs, voorraad);
+		this.naam = naam;
+		this.prijs = prijs;
+		this.voorraad = voorraad;
 	}
 
 	public Voedsel(String naam, int prijs, int voorraad, int eenheid) {
 		super(naam, prijs, voorraad, eenheid);
+		this.naam = naam;
+		this.prijs = prijs;
+		this.voorraad = voorraad;
+		this.eenheid = eenheid;
 	}
 	
 	@Override
-	public int getPrijs(int hoeveelheid, boolean inclusief) {
-		if (!inclusief) {
-			return hoeveelheid*getPrijsPerEenheid();
-		}
-		else {
-			return (hoeveelheid*getPrijsPerEenheid()*(100 + getBTWPercentage()))/100;
-		}
+	public int getBTWPercentage() {
+		return 21;
 	}
 
 	@Override
-	int getBTWPercentage() {
-		return 6;
+	public String getNaam() {
+		return this.naam;
 	}
 
+	@Override
+	public int getPrijsPerEenheid() {
+		return this.prijs;
+	}
+
+	@Override
+	public int getVoorraad() {
+		return this.voorraad;
+	}
+
+	@Override
+	public int getEenheid() {
+		return this.eenheid;
+	}
+
+	@Override
+	public void setVoorraad2(int voorraad) {
+		this.voorraad = voorraad;
+	}
 }

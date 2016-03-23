@@ -5,6 +5,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import nl.youngcapital.webwagen.WinkelWagen;
+import nl.youngcapital.webwinkel.Bezorging;
+import nl.youngcapital.webwinkel.Bezorging.IBezorgbaar;
 import nl.youngcapital.webwinkel.DefaultProduct;
 import nl.youngcapital.webwinkel.KwantumKorting;
 import nl.youngcapital.webwinkel.Product;
@@ -38,11 +40,25 @@ public class WebMain {
 					try {
 						int hoeveelheid = s.nextInt();
 						ww.bestel(winkel.get(i), hoeveelheid);
+						if (ww.getList().get(ww.getList().size() - 1) instanceof IBezorgbaar) {
+							System.out.println("Hoe wil je dit product bezorgd hebben?\n1: Internationaal, 2: Lokaal.");
+							int bz = s.nextInt();
+							if (bz == 1) {
+								DefaultProduct dp = (DefaultProduct) ww.getList().get(ww.getList().size() - 1).getProduct();
+								dp.setBezorging(new Bezorging("Internationale bezorging", 100, 1));
+								ww.bestel(dp.getBezorging(), 1);
+							}
+							else if (bz == 2) {
+								DefaultProduct dp = (DefaultProduct) ww.getList().get(ww.getList().size() - 1).getProduct();
+								dp.setBezorging(new Bezorging("Lokale bezorging", 50, 1));
+								ww.bestel(dp.getBezorging(), 1);
+							}
+						}
 						System.out.println(ww);
 					}
 					catch (InputMismatchException e) {
 						System.out.println("Dit is geen aantal.");
-						s.next();
+						//s.next();
 					}
 				}
 			}
@@ -61,7 +77,7 @@ public class WebMain {
 				else if (str2.equals("W")){
 					System.out.println("Voer het product op je bon in dat je wil wijzigen:");
 					String str3 = s.next();
-					System.out.println("Voer het aantal in waarmee je het product wil wijzigen (positief getal voor toevoegen, negatief getal voor verwijderen.");
+					System.out.println("Voer het aantal in waarmee je het product wil wijzigen (positief getal voor toevoegen, negatief getal voor verwijderen).");
 					int wijziging = s.nextInt();
 					ww.wijzig(str3, wijziging);
 					System.out.println(ww);

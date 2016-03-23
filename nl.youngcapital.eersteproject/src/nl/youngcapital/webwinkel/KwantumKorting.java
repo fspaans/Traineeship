@@ -23,17 +23,42 @@ public class KwantumKorting extends Product {
 	}
 
 	@Override
-	public int getPrijs(int hoeveelheid, boolean inclusief) {
-		if (!inclusief) {
-			return (hoeveelheid*(3+hoeveelheid)*getPrijsPerEenheid())/(2*(1+hoeveelheid));
-		}
-		else {
-			return (hoeveelheid*(3+hoeveelheid)*getPrijsPerEenheid()*(100 + getBTWPercentage()))/(100*(2*(1+hoeveelheid)));
-		}
+	public int getBTWPercentage() {
+		return 21;
 	}
 
 	@Override
-	int getBTWPercentage() {
-		return 21;
+	public String getNaam() {
+		return this.naam;
+	}
+
+	@Override
+	public int getPrijsPerEenheid() {
+		return this.prijs;
+	}
+
+	@Override
+	public int getVoorraad() {
+		return this.voorraad;
+	}
+
+	@Override
+	public int getEenheid() {
+		return this.eenheid;
+	}
+
+	@Override
+	public void setVoorraad2(int voorraad) {
+		this.voorraad = voorraad;
+	}
+	
+	@Override
+	public int getPrijs(int hoeveelheid, boolean inclusief) {
+		if (!inclusief) {
+			return ((3+hoeveelheid)*getPrijsPerEenheid()) / (2*(hoeveelheid+1));
+		}
+		else {
+			return ((3+hoeveelheid)*hoeveelheid*getPrijsPerEenheid()*(100 + getBTWPercentage()))/(100 * (2*(hoeveelheid+1)));
+		}
 	}
 } 
