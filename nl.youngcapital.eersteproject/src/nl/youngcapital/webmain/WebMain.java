@@ -41,18 +41,17 @@ public class WebMain {
 						int hoeveelheid = s.nextInt();
 						ww.bestel(winkel.get(i), hoeveelheid);
 						if (ww.getList().get(ww.getList().size() - 1).getProduct() instanceof IBezorgbaar) {
+							IBezorgbaar dp = (IBezorgbaar) ww.getList().get(ww.getList().size() - 1).getProduct();
 							System.out.println("Hoe wil je dit product bezorgd hebben?\n1: Internationaal, 2: Lokaal.");
 							int bz = s.nextInt();
+							
 							if (bz == 1) {
-								DefaultProduct dp = (DefaultProduct) ww.getList().get(ww.getList().size() - 1).getProduct();
 								dp.setBezorging(new Bezorging("Internationale bezorging", 100, 1));
-								ww.bestel(dp.getBezorging(), 1);
 							}
 							else if (bz == 2) {
-								DefaultProduct dp = (DefaultProduct) ww.getList().get(ww.getList().size() - 1).getProduct();
 								dp.setBezorging(new Bezorging("Lokale bezorging", 50, 1));
-								ww.bestel(dp.getBezorging(), 1);
 							}
+							ww.bestel(dp.getBezorging(), 1);
 						}
 						System.out.println(ww);
 					}

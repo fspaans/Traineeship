@@ -2,6 +2,7 @@ package nl.youngcapital.webwagen;
 
 import java.util.ArrayList;
 import nl.youngcapital.webwagen.ProductBestelling;
+import nl.youngcapital.webwinkel.Bezorging.IBezorgbaar;
 import nl.youngcapital.webwinkel.Product;
 
 public class WinkelWagen {
@@ -12,8 +13,19 @@ public class WinkelWagen {
 	
 	public void bestel(Product p, int hoeveelheid) throws IllegalArgumentException {
 		if (hoeveelheid >= 0) {
+			boolean has = false;
+			for(ProductBestelling pb: this.list) {
+				if(pb.getProduct().equals(p)) {
+					has = true;
+				}
+			}
 			p.haalUitVoorraad(hoeveelheid);
-			this.list.add(new ProductBestelling(p, hoeveelheid));
+			if(!has) {
+				this.list.add(new ProductBestelling(p, hoeveelheid));
+			}
+			else {
+				this.list.get(indexProduct(p.getNaam())).setHoeveelheid(this.list.get(indexProduct(p.getNaam())).getHoeveelheid() + hoeveelheid);
+			}
 		}
 		else {
 			throw new IllegalArgumentException("You can't order a negative amount of products.");
@@ -40,6 +52,10 @@ public class WinkelWagen {
 			}
 			
 			if (list.get(indexProduct(naam)).getHoeveelheid() == 0) {
+				if (list.get(indexProduct(naam)).getProduct() instanceof IBezorgbaar) {
+					IBezorgbaar dp = (IBezorgbaar) list.get(indexProduct(naam)).getProduct();
+					list.remove(indexProduct(dp.getBezorging().getNaam()));		
+				}
 				list.remove(indexProduct(naam));
 			}
 		}

@@ -61,4 +61,9 @@ public abstract class Product {
 			throw new IllegalArgumentException("Not that much voorraad available.");
 		}
 	}
+	
+	@Override
+	public boolean equals (Object p) {
+		return this.getNaam().equals(((Product) p).getNaam());
+	}
 }
