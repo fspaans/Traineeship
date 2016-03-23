@@ -40,7 +40,7 @@ public class WebMain {
 					try {
 						int hoeveelheid = s.nextInt();
 						ww.bestel(winkel.get(i), hoeveelheid);
-						if (ww.getList().get(ww.getList().size() - 1) instanceof IBezorgbaar) {
+						if (ww.getList().get(ww.getList().size() - 1).getProduct() instanceof IBezorgbaar) {
 							System.out.println("Hoe wil je dit product bezorgd hebben?\n1: Internationaal, 2: Lokaal.");
 							int bz = s.nextInt();
 							if (bz == 1) {
