@@ -2,7 +2,7 @@ package nl.fs.demo;
 
 import java.util.Scanner;
 
-public class Overload{
+class Overload{
 	
 	static Scanner s = new Scanner(System.in);
 	
@@ -31,6 +31,7 @@ public class Overload{
 	}
 	
 	public static void main (String[] args){
+
 		System.out.println("Vul waarde a in:");
 		int a = aantalBytes(1000L);
 		System.out.println("Vul waarde b in:");
