@@ -4,9 +4,8 @@ public class Samsung extends MobilePhone implements USBCharger {
 
 	private String OS = "Android";
 	
+	@Override
 	public String getOS () {
 		return this.OS;
 	}
-	
-	public void charge() { System.out.println("Ik laad op.");}
 }

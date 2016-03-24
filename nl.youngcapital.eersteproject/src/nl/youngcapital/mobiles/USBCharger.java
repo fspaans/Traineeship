@@ -1,5 +1,5 @@
 package nl.youngcapital.mobiles;
 
 public interface USBCharger {
-	void charge();
+	default void charge() { System.out.println("Ik laad op."); }
 }
