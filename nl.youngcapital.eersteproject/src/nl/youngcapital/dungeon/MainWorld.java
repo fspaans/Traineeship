@@ -22,7 +22,7 @@ public class MainWorld {
 
 			System.out.println(world.toString(player));
 			System.out.println(world.getSquare(player.getX(), player.getY()).getDescription());
-			System.out.println("Waar wil je heen? [N/S/W/E]");
+			System.out.println("Where are you going? [N/S/W/E]");
 			String dir = s.next();
 			switch (dir) {
 				case "N": player.moveUp(); break;
