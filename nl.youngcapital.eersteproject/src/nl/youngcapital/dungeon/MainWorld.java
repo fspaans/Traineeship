@@ -5,15 +5,15 @@ import java.util.Scanner;
 public class MainWorld {
 
 	public static void main(String[] args) {
-		GameWorld world = new GameWorld();
+		GameWorld world = new GameWorld(4,4);
 		
-		Square[][] create = {{new Road(), new Forest()},
-							{new Room()},
-							{new Room(), new Wall(), new Hallway()},
+		Square[][] create = {{null, null, new Road(), new Forest()},
+							{null, new Room(), null, null},
+							{new Room(), new Wall(), new Hallway(), null},
 							{new Room(), new Room(), new Wall(), new Hallway()}};
 		world.setWorld(create);
 		
-		Player player = new Player(0, 0);
+		Player player = new Player(2, 0);
 		
 		boolean game = true;
 		Scanner s = new Scanner(System.in);
