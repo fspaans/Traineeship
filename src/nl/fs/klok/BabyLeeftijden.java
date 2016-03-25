@@ -20,7 +20,7 @@ public class BabyLeeftijden {
 		System.out.println("Wat is het geboorte dag?");
 		dag = Integer.valueOf(s.next());
 		gebJaar = gebJaar.of(jaar,maand,dag);
-		jaar = ge
+		//jaar = ge
 		
 	}
 }
